@@ -15,7 +15,15 @@
 (define (second_empty first second) (equal? second '() ))
 (define (cdr_second a b) (cdr b)) 
 
+(define (left-bst data) (cadr data))
+(define (right-bst data) (caddr data))
 
+(define (next-bst element data)
+  (cond
+    ((< element (car data)) (left-bst data))
+    (else (right-bst data))
+  )
+)
 
 ; purpose: search a data structure for a chosen element
 ; input: data -> data structure (like a list) to search
@@ -30,7 +38,7 @@
   (cond
     ((done data data) nil)
     ((found element (current-item data)) (current-item data))
-    (else         (search (next data data) element current-item done found next))
+    (else         (search (next element data) element current-item done found next))
   )
 )
 
