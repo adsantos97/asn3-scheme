@@ -62,10 +62,13 @@
 ;                 search for
 ;        next -> function that returns the part of the data to be searched next
 ; output: element if found or nil if not found
+;         list that contains $ for every time next is called
 (define (search-extra data element current-item done found next)
   (cond
-    ((done data data) dollar)
+    ((done data data) nil)
     ((found element (current-item data)) (current-item data))
-    (else         (cons dollar (list(search (next data data) element current-item done found next))))
+    (else         (cons dollar (search-extra (next data data) element current-item done found next) ))
   )
 )
+
+
