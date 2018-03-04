@@ -83,3 +83,12 @@
     (else (cons (car l) (car(last (cdr l)))))
   )
 )
+
+(define (count atom x)
+  (cond
+    ((null? x) 0)
+    ((list? (car x)) (+ (count atom (cdr x)) (count atom (car x))))
+    ((eqv? (car x) atom) (+ 1 (count atom (cdr x))))
+    (else (+ 0 (count atom (cdr x))))
+   )
+)
