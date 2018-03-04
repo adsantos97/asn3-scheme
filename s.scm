@@ -77,3 +77,20 @@
     (else (cons symbol l))
   )
 )
+
+(define (atom? x)
+  (and (not (pair? x)) (not (null? x))))
+
+(define (strip lst)
+  (if (or (null? lst) (atom? lst) (not (null? (cdr lst))))
+    lst
+    (strip (car lst))))
+
+(define (flatten lst)
+  (cond ((or (null? lst) (atom? lst))
+    lst)
+    ((null? (strip (car lst)))
+    (flatten (cdr lst)))
+    (else
+      (cons (flatten (strip (car lst))) (flatten (cdr lst))))))
+
