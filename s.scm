@@ -67,8 +67,13 @@
   (cond
     ((done data data) nil)
     ((found element (current-item data)) (current-item data))
-    (else         (cons dollar (search-extra (next data data) element current-item done found next) ))
+    (else         (cons2 dollar (list (search-extra (next data data) element current-item done found next))))
   )
 )
 
-
+(define (cons2 symbol l)
+  (cond 
+    ((null? l) nil)
+    (else (cons symbol l))
+  )
+)
