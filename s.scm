@@ -10,6 +10,12 @@
   '(10 (8 (4 () (6 () ())) (9 () ()) ) (15 () (18 () ())) ))
 (define simple-bts
   '(5 (4 () ()) (6 () ())))
+(define symboltree
+  '($ ($ ($ ($ ($ ($ ($ 67) ) ) ) ) ) ) )
+(define st
+  '($ ($  4)))
+(define st2
+  '($ ($ ($ 45))))
 
 ; given auxilary functions
 (define (second_empty first second) (equal? second '() )) ; "done"
@@ -67,30 +73,13 @@
   (cond
     ((done data data) nil)
     ((found element (current-item data)) (current-item data))
-    (else         (cons2 dollar (list (search-extra (next data data) element current-item done found next))))
+    (else         (cons dollar (list (search-extra (next data data) element current-item done found next))))
   )
 )
 
-(define (cons2 symbol l)
+(define (last l)
   (cond 
-    ((null? l) nil)
-    (else (cons symbol l))
+    ((= (length l) 1) l)
+    (else (cons (car l) (car(last (cdr l)))))
   )
 )
-
-(define (atom? x)
-  (and (not (pair? x)) (not (null? x))))
-
-(define (strip lst)
-  (if (or (null? lst) (atom? lst) (not (null? (cdr lst))))
-    lst
-    (strip (car lst))))
-
-(define (flatten lst)
-  (cond ((or (null? lst) (atom? lst))
-    lst)
-    ((null? (strip (car lst)))
-    (flatten (cdr lst)))
-    (else
-      (cons (flatten (strip (car lst))) (flatten (cdr lst))))))
-
