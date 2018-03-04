@@ -64,8 +64,8 @@
 ; output: element if found or nil if not found
 (define (search-extra data element current-item done found next)
   (cond
-    ((done data data) nil)
+    ((done data data) dollar)
     ((found element (current-item data)) (current-item data))
-    (else         (quote dolar (search (next data data) element current-item done found next)))
+    (else         (cons dollar (list(search (next data data) element current-item done found next))))
   )
 )
