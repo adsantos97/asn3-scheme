@@ -11,17 +11,28 @@
 (define simple-bts
   '(5 (4 () ()) (6 () ())))
 
-; auxilary functions for searching unsorted and sorted lists
-(define (second_empty first second) (equal? second '() ))
-(define (cdr_second a b) (cdr b)) 
+; given auxilary functions
+(define (second_empty first second) (equal? second '() )) ; "done"
+(define (cdr_second a b) (cdr b)) ; "next" for unsorted and sorted list
 
-(define (left-bst data) (cadr data))
-(define (right-bst data) (caddr data))
+; purpose: left subtree of binary search tree
+; input: bst -> binary search tree
+; output: left subtree
+(define (left-bst bst) (cadr bst))
 
-(define (next-bst element data)
+; purpose: right subtree of binary search tree
+; input: bst -> binary search tree
+; output: right subtree
+(define (right-bst bst) (caddr bst))
+
+; purpose: find next part of binary search tree 
+; input: element -> element to search for
+;        bst -> binary search tree
+; output: part of the bst to be searched next       
+(define (next-bst element bst)
   (cond
-    ((< element (car data)) (left-bst data))
-    (else (right-bst data))
+    ((< element (car bst)) (left-bst bst))
+    (else (right-bst bst))
   )
 )
 
