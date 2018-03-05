@@ -10,12 +10,6 @@
   '(10 (8 (4 () (6 () ())) (9 () ()) ) (15 () (18 () ())) ))
 (define simple-bts
   '(5 (4 () ()) (6 () ())))
-(define symboltree
-  '($ ($ ($ ($ ($ ($ ($ 67) ) ) ) ) ) ) )
-(define st
-  '($ ($  4)))
-(define st2
-  '($ ($ ($ 45))))
 
 ; given auxilary functions
 (define (second_empty first second) (equal? second '() )) ; "done"
