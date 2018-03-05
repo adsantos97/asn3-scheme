@@ -73,6 +73,6 @@
   (cond
     ((done data data) nil)
     ((found element (current-item data)) (list(current-item data)))
-    (else         (cons dollar (search-extra (next data data) element current-item done found next)))
+    (else         (cons dollar (search-extra (next element data) element current-item done found next)))
   )
 )
