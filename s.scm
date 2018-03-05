@@ -72,15 +72,8 @@
 (define (search-extra data element current-item done found next)
   (cond
     ((done data data) nil)
-    ((found element (current-item data)) (current-item data))
-    (else         (append-dollar dollar (search-extra (next data data) element current-item done found next)))
-  )
-)
-
-(define (append-dollar symbol l)
-  (cond 
-    ((pair? l) (cdr l))
-    (else (cons symbol (append-dollar symbol l)))
+    ((found element (current-item data)) (list(current-item data)))
+    (else         (cons dollar (search-extra (next data data) element current-item done found next)))
   )
 )
 
