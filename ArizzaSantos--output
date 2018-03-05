@@ -1,0 +1,62 @@
+Script started on Sun 04 Mar 2018 06:27:54 PM EST
+asantos@snoopy:~/cs451/asn3-scheme$ scheme-elk
+> (load "s.scm")
+
+> (display unsorted-list)
+(6 7 4 45 7 76 3 67 7 63 19)
+> (display sorted-list)
+(2 6 10 14 55 65 78 99 102)
+> (display binary-search-tree)
+(10 (8 (4 () (6 () ())) (9 () ())) (15 () (18 () ())))
+> (search unsorted-list '6 car second_empty equal? cdr_second)
+6
+> (search unsorted-list '7 car second_empty equal? cdr_second)
+7
+> (search unsorted-list '76 car second_empty equal? cdr_second)
+76
+> (search unsorted-list '19 car second_empty equal? cdr_second)
+19
+> (search unsorted-list '-10 car second_empty equal? cdr_second)
+()
+> (search unsorted-list '300 car second_empty equal? cdr_second)
+()
+> (search unsorted-list '(6 7) car second_empty equal? cdr_second)
+()
+> (search sorted-list '2 car second_empty equal? cdr_second)
+2
+> (search sorted-list '102 car second_empty equal? cdr_second)
+102
+> (search sorted-list '78 car second_empty equal? cdr_second)
+78
+> (search sorted-list '101 car second_empty equal? cdr_second)
+()
+> (search binary-search-tree '10 car second_empty equal? cdr_second next-bst)
+10
+> (search binary-search-tree '8 car second_empty equal? next-bst)
+8
+> (search binary-search-tree '15 car second_empty equal? next-bst)
+15
+> (search binary-search-tree '4 car second_empty equal? next-bst)
+4
+> (search binary-search-tree '6 car second_empty equal? next-bst)
+6
+> (search binary-search-tree '11 car second_empty equal? next-bst)
+()
+> (search binary-search-tree '1 car second_empty equal? next-bst)
+()
+1> (search binary-search-tree '-1 car second_empty equal? next-bst)
+()
+1> (search binary-search-tree nil car second_empty equal? next-bst)
+<: wrong argument type null (expected number)
+2> 
+1> 
+> (search binary-search-tree '() car second_empty equal? next-bst)
+<: wrong argument type null (expected number)
+1> 
+> (search sorted-list nil car second_empty equal? cdr_second)
+()
+> (exit)
+asantos@snoopy:~/cs451/asn3-scheme$ exit
+exit
+
+Script done on Sun 04 Mar 2018 06:43:44 PM EST

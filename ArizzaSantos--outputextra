@@ -1,0 +1,39 @@
+Script started on Sun 04 Mar 2018 08:31:59 PM EST
+asantos@snoopy:~/cs451/asn3-scheme$ ([Kscheme-elk
+> (load "s.scm")
+
+> (search unsorted-list '67 car second_empty equal? cdr_second)
+67
+> (search unsorted-list '68 car second_empty equal? cdr_second)
+()
+> (search sorted-list '14 car second_empty equal? cdr_second)
+14
+> (search binary-search-tree '6 car second_empty equal? next-bst)
+6
+> (search-extra sorted-list '6 2 car second_empty equal? next-bst        cdr_second)
+(2)
+> (search-extra sorted-list '6 car secod nd_empty equal? cdr_second)
+($ 6)
+> (search-extra sorthe  ed-list '10 car second_empty equal? cdr_second)
+($ $ 10)
+> (search-extra sorted-list '102 car second_empty equal? ed  cdr_second)
+($ $ $ $ $ $ $ $ 102)
+> (search-extra sorted-list '200 car second_empty equal? cdr_second)
+($ $ $ $ $ $ $ $ $)
+> (search-extra sorted-       unsorted-list '63 car second_empty equal? cdr_second)
+($ $ $ $ $ $ $ $ $ 63)
+> (search-extra unsorted-list '19 car second_empty equal? cdr_second)
+($ $ $ $ $ $ $ $ $ $ 19)
+> (search-extra unsorted-list '20 car second_empty equal? cdr_second)
+($ $ $ $ $ $ $ $ $ $ $)
+> (search-extra binary-search-tree '6 car second_empty equal? next-bst)
+<: wrong argument type pair (expected number)
+1> 
+> (search-extra binary-search-tree '8 8 car second_empty equal? next-bst)
+<: wrong argument type pair (expected number)
+1> 
+> (exit)
+asantos@snoopy:~/cs451/asn3-scheme$ vi [K[K[Kexit
+exit
+
+Script done on Sun 04 Mar 2018 09:03:56 PM EST

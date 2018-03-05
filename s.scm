@@ -76,12 +76,3 @@
     (else         (cons dollar (search-extra (next data data) element current-item done found next)))
   )
 )
-
-(define (count atom x)
-  (cond
-    ((null? x) 0)
-    ((list? (car x)) (+ (count atom (cdr x)) (count atom (car x))))
-    ((eqv? (car x) atom) (+ 1 (count atom (cdr x))))
-    (else (+ 0 (count atom (cdr x))))
-   )
-)
