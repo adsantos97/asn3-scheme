@@ -73,14 +73,14 @@
   (cond
     ((done data data) nil)
     ((found element (current-item data)) (current-item data))
-    (else         (cons dollar (list (search-extra (next data data) element current-item done found next))))
+    (else         (append-dollar dollar (search-extra (next data data) element current-item done found next)))
   )
 )
 
-(define (last l)
+(define (append-dollar symbol l)
   (cond 
-    ((= (length l) 1) l)
-    (else (cons (car l) (car(last (cdr l)))))
+    ((pair? l) (cdr l))
+    (else (cons symbol (append-dollar symbol l)))
   )
 )
 
