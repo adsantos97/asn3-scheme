@@ -20,13 +20,13 @@ asantos@snoopy:~/cs451/asn3-scheme$ scheme-elk
 --test unsorted-list for last element--
 > (search unsorted-list '19 car second_empty equal? cdr_second)
 19
---test unsorted-list for negative element--
+--test unsorted-list for negative element...should be unsuccessful--
 > (search unsorted-list '-10 car second_empty equal? cdr_second)
 ()
---test unsorted-list for higher-valued element--
+--test unsorted-list for higher-valued element...should be unsuccessful--
 > (search unsorted-list '300 car second_empty equal? cdr_second)
 ()
---test unsorted-list for list element--
+--test unsorted-list for list element...should be unsuccessful--
 > (search unsorted-list '(6 7) car second_empty equal? cdr_second)
 ()
 --test sorted-list for first element--
@@ -38,7 +38,8 @@ asantos@snoopy:~/cs451/asn3-scheme$ scheme-elk
 --test sorted-list for a middle element--
 > (search sorted-list '78 car second_empty equal? cdr_second)
 78
---test sorted-list for element not in list, but in "range" of list--
+--test sorted-list for element not in list, but in "range" of list...should be
+unsuccessful--
 > (search sorted-list '101 car second_empty equal? cdr_second)
 ()
 --test bst for first (root) element--
@@ -56,16 +57,17 @@ asantos@snoopy:~/cs451/asn3-scheme$ scheme-elk
 --test bst for element on fourth level--
 > (search binary-search-tree '6 car second_empty equal? next-bst)
 6
---test bst for element not in the tree (greater than root)--
+--test bst for element not in the tree (greater than root)...should be
+unsuccessful--
 > (search binary-search-tree '11 car second_empty equal? next-bst)
 ()
---test bst for element not in the tree (less than root)--
+--test bst for element not in the tree (less than root)...should be unsuccessful--
 > (search binary-search-tree '1 car second_empty equal? next-bst)
 ()
---test bst for negative element--
+--test bst for negative element...should be unsuccessful--
 > (search binary-search-tree '-1 car second_empty equal? next-bst)
 ()
---test sorted-list for nil--
+--test sorted-list for nil...is successful because it found nil--
 > (search sorted-list nil car second_empty equal? cdr_second)
 ()
 --extra credit test for first element in sorted-list--
@@ -119,6 +121,7 @@ is called three times to search fourth level--
 asantos@snoopy:~/cs451/asn3-scheme$ exit
 exit
 
+--unsuccessful searches should return nil--
 --all of my tests ran and outputted the answers I wanted--
 
 Script done on Sun 04 Mar 2018 06:43:44 PM EST
