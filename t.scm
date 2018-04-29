@@ -1,3 +1,48 @@
+(define (fold l finish next gen)
+  (cond ((null? l)   finish)
+        (else        (next (car l) (fold (gen l) finish next gen)))
+  )
+)
+(define (inc-second a b) (+ 1 b))
+(define (lenf l)  (fold l 0 inc-second cdr))
+(define (lenf2 l)  (fold l 0 (lambda(x y) (+ 1 y)) cdr))
+
+; (lenf '(x y)))
+; (fold '(x y) 0 inc-second cdr)
+;    (inc-second x (fold  (y)  0 next gen))
+;                  (inc-second y (fold () 0 next gen))
+;                                0
+;    (inc-second x (inc-second y 0))
+;
+(define (app a b) (fold a b  cons  cdr))
+(define (sum-list list) (fold list 0 + cdr))
+(define (prod-list list) (fold list 1 * cdr))
+
+(define (mapf f list) (fold list nil (lambda (x y) (cons (f x) y)) cdr))
+
+(define (map f list)
+  (cond ((null? list)  nil)
+        (else          (cons (f (car list)) (map f (cdr list))))
+  )
+)
+
+
+; return a % b
+(define (mod a b) (remainder b a))
+
+(define (sieve filter n)
+   (cond ((n > 1000) nil)
+         ((filter n) (sieve filter (+ 1 n)))
+         (else       (cons n (sieve (lambda (x) (if (equal? 0 (mod x n))
+                                                 #T
+                                                 (filter x)))
+                                    (+ 1 n))))
+   )
+)
+        
+(define (false x) #F)
+; (sieve false    2)
+
 (define nil '())
 ; homework write factorial  ... both non-tail-recursive and tail recursive
 ; homework remove duplicates (see moodle page)
